@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    	<record model="ir.ui.view" id="view_order_form_scocorpo">
+    		<field name="name">view.order.form.scocorpo</field>
+    		<field name="model">sale.order</field>
+    		<field name="inherit_id" ref="sale.view_order_form"/>
+    		<field name="arch" type="xml">
+
+		  <xpath expr="/form/notebook/page[@string='Sales Order']/group[2]" position="after">
+			 <group col="13" colspan="10">
+    				<field name="valore_sconto"   />
+				
+				<button name="calcola_sco_corpo" states="draft" string="Scorpora Sconto" type="object" icon="gtk-execute"/>
+			      </group>	
+    			
+		   </xpath>
+		   <field name="property_ids" position="after">
+    				<newline/>
+    				<field name="string_discount" on_change="Calcolo_Sconto(string_discount)"/>		      
+    			</field>
+
+    		</field>
+    	</record>
+    			
+    </data>
+ </openerp>
